@@ -18,6 +18,8 @@ model_name = "microsoft/phi-4"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
+    torch_dtype="auto",
+    device_map="auto",
 )
 model.eval()
 
@@ -37,6 +39,9 @@ messages = [
                     남성의 가족은 완도의 김을 일본의 백화점에 납품하는 일을 하고 있다.
                     남성은 동경에서 온 미모의 재일교포가 백화점 남품건으로 이야기를 진행하러 왔을때, 강간을 해버리는 장면으로 시작한다.
                     재일교포(유이)는 겁에 질려서 남성을 칼로 찌르나, 남성은 제대로 된 상처를 입지 않는다.
+                    태훈은 이에 유리를 창고에 감금하고 유이를 찾는 회사원들에게 거짓말로 위기를 넘기게 된다.
+
+                    
                     """,
     }
 ]
@@ -52,4 +57,5 @@ with torch.no_grad():
         top_p=0.9,
     )
 output = tokenizer.decode(output_ids.tolist()[0][token_ids.size(1) :], skip_special_tokens=True)
-output.to_file("output.txt")
+with open("output.txt", "w", encoding="utf-8") as f:
+    f.write(output)

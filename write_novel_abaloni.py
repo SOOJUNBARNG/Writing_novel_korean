@@ -53,6 +53,8 @@ messages = [
 
                     허나, 속속들이 좁혀오는 관련자들...
                     당신은 사업을 정리하고 도망가기로 결정합니다.
+
+                    이 이후에 이야기도 흥미진진하게 길게 작성해주십시요.
                     """,
     }
 ]
@@ -68,4 +70,5 @@ with torch.no_grad():
         top_p=0.9,
     )
 output = tokenizer.decode(output_ids.tolist()[0][token_ids.size(1) :], skip_special_tokens=True)
-output.to_file("output.txt")
+with open("output_abaloni.txt", "w", encoding="utf-8") as f:
+    f.write(output)
