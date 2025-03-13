@@ -29,6 +29,7 @@ messages = [
         "content": """당신은 소설속 인물입니다. 
                     개인의 경험을 장기간에 걸쳐서 담담히 서술하는 것이 당신의 일입니다 
                     부족한 부분은 자세히 기술을 해주면 좋겠습니다. 2시간 이상의 읽을만한 분량을 쓰는 것을 좋아합니다.
+                    100000자 이상의 글을 쓰시오.
                     """
     },
     {
@@ -62,14 +63,47 @@ messages = [
 prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 token_ids = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt")
 
-with torch.no_grad():
-    output_ids = model.generate(
-        token_ids.to(model.device),
-        max_new_tokens=1200,
-        do_sample=True,
-        temperature=0.6,
-        top_p=0.9,
-    )
-output = tokenizer.decode(output_ids.tolist()[0][token_ids.size(1) :], skip_special_tokens=True)
-with open("output_abaloni.txt", "w", encoding="utf-8") as f:
-    f.write(output)
+def generate_long_text(prompt, total_length=100000, chunk_size=1024):
+    generated_text = prompt
+    for _ in range(total_length // chunk_size):
+        inputs = tokenizer(generated_text, return_tensors="pt", truncation=True)
+        output = model.generate(**inputs, max_length=len(inputs["input_ids"][0]) + chunk_size, do_sample=True, temperature=0.7)
+        new_text = tokenizer.decode(output[0], skip_special_tokens=True)
+        
+        # Append only new text
+        generated_text = new_text[len(generated_text):]
+
+        print(generated_text)  # Print in chunks
+    return generated_text
+
+prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+token_ids = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt").to(device)
+
+def generate_long_text(model, tokenizer, token_ids, total_tokens=50000, chunk_size=1024):
+    generated_text = ""
+    
+    with open("output_abaloni.txt", "w", encoding="utf-8") as f:
+        for _ in range(total_tokens // chunk_size):
+            with torch.no_grad():
+                output_ids = model.generate(
+                    token_ids,
+                    max_new_tokens=chunk_size,
+                    do_sample=True,
+                    temperature=0.7,
+                    top_p=0.9,
+                )
+            
+            new_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+            token_ids = output_ids[:, -chunk_size:].detach()  # 마지막 chunk만 유지
+            
+            # 텍스트 저장
+            f.write(new_text + "\n")
+            f.flush()
+            
+            print(new_text[:200])  # 처음 200자만 미리보기 출력
+            generated_text += new_text
+            
+    return generated_text
+
+# 긴 글 생성
+long_text = generate_long_text(model, tokenizer, token_ids)

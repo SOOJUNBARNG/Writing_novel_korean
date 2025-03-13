@@ -46,16 +46,33 @@ messages = [
     }
 ]
 prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-token_ids = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt")
+token_ids = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt").to(device)
 
-with torch.no_grad():
-    output_ids = model.generate(
-        token_ids.to(model.device),
-        max_new_tokens=1200,
-        do_sample=True,
-        temperature=0.6,
-        top_p=0.9,
-    )
-output = tokenizer.decode(output_ids.tolist()[0][token_ids.size(1) :], skip_special_tokens=True)
-with open("output.txt", "w", encoding="utf-8") as f:
-    f.write(output)
+def generate_long_text(model, tokenizer, token_ids, total_tokens=50000, chunk_size=1024):
+    generated_text = ""
+    
+    with open("output.txt", "w", encoding="utf-8") as f:
+        for _ in range(total_tokens // chunk_size):
+            with torch.no_grad():
+                output_ids = model.generate(
+                    token_ids,
+                    max_new_tokens=chunk_size,
+                    do_sample=True,
+                    temperature=0.7,
+                    top_p=0.9,
+                )
+            
+            new_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+            token_ids = output_ids[:, -chunk_size:].detach()  # 마지막 chunk만 유지
+            
+            # 텍스트 저장
+            f.write(new_text + "\n")
+            f.flush()
+            
+            print(new_text[:200])  # 처음 200자만 미리보기 출력
+            generated_text += new_text
+            
+    return generated_text
+
+# 긴 글 생성
+long_text = generate_long_text(model, tokenizer, token_ids)
