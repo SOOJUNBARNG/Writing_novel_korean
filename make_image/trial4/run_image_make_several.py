@@ -16,41 +16,41 @@ animals_with_clothing = [
     "A female rat wearing an elegant dress",
     
     "A male ox wearing a farmer's outfit",
-    "A female ox wearing a traditional Chinese dress",
+    "A female ox wearing a kimono dress",
     
     "A male tiger wearing a detective coat",
-    "A female tiger wearing a warrior’s outfit",
+    "A female tiger wearing a doctor outfit",
     
-    "A male rabbit dressed in knight’s armor",
-    "A female rabbit wearing a floral dress",
+    "A male rabbit dressed in knight general suit",
+    "A female rabbit wearing like a florist",
     
-    "A male dragon in royal Chinese robes",
-    "A female dragon in a flowing ceremonial dress",
+    "A male dragon in royal Korean robes",
+    "A female dragon with pilates dress",
     
-    "A male snake wearing a bow tie in an upscale restaurant",
+    "A male snake wearing a bow tie",
     "A female snake wearing a stylish gown",
     
     "A male horse wearing a royal robe",
-    "A female horse wearing an elegant ballroom gown",
+    "A female Anthropomorphic horse wearing an elegant ballroom gown",
     
     "A male goat wearing a scholar’s robe",
     "A female goat wearing a soft woolen dress",
     
-    "A male monkey wearing a suit and tie in a corporate office",
-    "A female monkey wearing a chic blazer and skirt",
+    "A male Anthropomorphic gorila wearing a suit and tie",
+    "A female Anthropomorphic gorila wearing a chic blazer and skirt",
     
-    "A male rooster wearing a pilot uniform",
-    "A female rooster wearing a stylish flight attendant outfit",
+    "A male Anthropomorphic rooster wearing a pilot uniform",
+    "A female Anthropomorphic rooster wearing a stylish flight attendant",
     
     "A male dog wearing a superhero costume",
     "A female dog wearing a detective trench coat",
     
-    "A male pig dressed as a chef",
-    "A female pig wearing a baker’s apron"
+    "A male fit pig dressed as a police officer",
+    "A female fit pig wearing as a lawyer"
 ]
 
 
-added_prompts = "Anthropomorphic, Nice looking, delightful face, standing upright, wearing well-fitted clothing, anime style, no background"
+added_prompts = "Anthropomorphic, Nice looking, slender or muscular, wearing well-fitted clothing, anime style, white background"
 
 for prompt in animals_with_clothing:
     enhanced_prompt = prompt + ", " + added_prompts
