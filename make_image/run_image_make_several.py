@@ -12,29 +12,29 @@ leading_image_path = r"D:\Writing_novel_korean\make_image\related_image\horseman
 leading_image = Image.open(leading_image_path).convert("RGB")
 
 animals_with_clothing = [
-    "A male rat wearing a business suit",
-    "A female rat wearing an elegant dress",
+    "A male anthropomorphic rat wearing a business suit",
+    "A female anthropomorphic rat wearing an elegant dress",
     
-    "A male ox wearing a farmer's outfit",
-    "A female ox wearing a kimono dress",
+    "A male anthropomorphic ox wearing a farmer's outfit",
+    "A female anthropomorphic ox wearing a oriental outfit",
     
-    "A male tiger wearing a detective coat",
-    "A female tiger wearing a doctor outfit",
+    "A male anthropomorphic tiger wearing a detective coat",
+    "A female anthropomorphic tiger wearing a doctor outfit",
     
-    "A male rabbit dressed in knight general suit",
-    "A female rabbit wearing like a florist",
+    "A male anthropomorphic rabbit dressed in knight general suit",
+    "A female anthropomorphic rabbit wearing like a florist",
     
-    "A male dragon in royal Korean robes",
-    "A female dragon with pilates dress",
+    "A male anthropomorphic dragon in royal Korean robes",
+    "A female anthropomorphic dragon with pilates dress",
     
-    "A male snake wearing a bow tie",
-    "A female snake wearing a stylish gown",
+    "A male anthropomorphic snake wearing a bow tie",
+    "A female anthropomorphic snake wearing a stylish gown",
     
     "A male horse wearing a royal robe",
     "A female Anthropomorphic horse wearing an elegant ballroom gown",
     
-    "A male goat wearing a scholar’s robe",
-    "A female goat wearing a soft woolen dress",
+    "A male anthropomorphic goat wearing a scholar’s robe",
+    "A female anthropomorphic goat wearing a soft woolen dress",
     
     "A male Anthropomorphic gorila wearing a suit and tie",
     "A female Anthropomorphic gorila wearing a chic blazer and skirt",
@@ -42,15 +42,15 @@ animals_with_clothing = [
     "A male Anthropomorphic rooster wearing a pilot uniform",
     "A female Anthropomorphic rooster wearing a stylish flight attendant",
     
-    "A male dog wearing a superhero costume",
-    "A female dog wearing a detective trench coat",
+    "A male anthropomorphic dog wearing a superhero costume",
+    "A female anthropomorphic dog wearing a detective trench coat",
     
-    "A male fit pig dressed as a police officer",
-    "A female fit pig wearing as a lawyer"
+    "A male anthropomorphic fit pig dressed as a police officer",
+    "A female anthropomorphic fit pig wearing as a lawyer"
 ]
 
 
-added_prompts = "Anthropomorphic, Nice looking, slender or muscular, wearing well-fitted clothing, anime style, white background"
+added_prompts = "Extremely Anthropomorphic,Hominized, Humanized, Nice looking, wearing well-fitted clothing, anime style, white background"
 
 for prompt in animals_with_clothing:
     enhanced_prompt = prompt + ", " + added_prompts
