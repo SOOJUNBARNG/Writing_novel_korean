@@ -13,44 +13,44 @@ leading_image = Image.open(leading_image_path).convert("RGB")
 
 animals_with_clothing = [
     "A male but a little like rat wearing a business suit",
-    "A female but a little like anthropomorphic rat wearing an elegant dress",
+    "A female but a little like rat wearing an elegant dress",
     
-    "A male but a little like  anthropomorphic ox wearing a farmer's outfit",
-    "A female but a little like  anthropomorphic ox wearing a oriental outfit",
+    "A male  a bit like  ox wearing a farmer's outfit",
+    "A female  a bit like  ox wearing a oriental outfit",
     
-    "A male but a little like  anthropomorphic tiger wearing a detective coat",
-    "A female but a little like  anthropomorphic tiger wearing a doctor outfit",
+    "A male  a bit like  tiger wearing a detective coat",
+    "A female  a bit like  tiger wearing a doctor outfit",
     
-    "A male but a little like  anthropomorphic rabbit dressed in knight general suit",
-    "A female but a little like  anthropomorphic rabbit wearing like a florist",
+    "A male  a bit like  rabbit dressed in knight general suit",
+    "A female  a bit like  rabbit wearing like a florist",
     
-    "A male but a little like  anthropomorphic dragon in royal Korean robes",
-    "A female but a little like  anthropomorphic dragon like career woman",
+    "A male  a bit like  dragon in royal Korean robes",
+    "A female career woman a bit like dragon in a business suit",
     
-    "A male but a little like  anthropomorphic snake wearing a bow tie",
-    "A female but a little like  anthropomorphic snake wearing a stylish gown",
+    "A male  a bit like  snake wearing a bow tie",
+    "A female  a bit like  snake wearing a stylish gown",
     
-    "A male but a little like  horse wearing a royal robe",
-    "A femalev Anthropomorphic horse wearing an elegant ballroom gown",
+    "A male a bit like horse wearing a royal robe",
+    "A female a bit like horse wearing an elegant ballroom gown",
     
-    "A male but a little like  anthropomorphic goat wearing a scholar’s robe",
-    "A female but a little like  anthropomorphic goat wearing a soft woolen dress",
+    "A male a bit like goat wearing a scholar’s robe",
+    "A female a bit like goat wearing a soft woolen dress",
     
-    "A male but a little like  Anthropomorphic monkey wearing a suit and tie",
-    "A female but a little like  Anthropomorphic monkey wearing a chic blazer and skirt",
+    "A male a bit like monkey wearing a suit and tie",
+    "A female a bit like monkey wearing a chic blazer and skirt",
     
-    "A male but a little like  Anthropomorphic rooster wearing a pilot uniform",
-    "A female but a little like  Anthropomorphic hen wearing a stylish flight attendant",
+    "A male but a little like rooster wearing a pilot uniform",
+    "A female but a little like hen wearing a stylish flight attendant",
     
-    "A male but a little like  anthropomorphic dog wearing a health trainer outfit",
-    "A female but a little like  anthropomorphic dog wearing a detective trench coat",
+    "A male  a bit like dog wearing a health trainer outfit",
+    "A female  a bit like dog wearing a detective trench coat",
     
-    "A male but a little like  anthropomorphic fit pig dressed as a police officer",
-    "A female  but a little like  anthropomorphic fit pig wearing as a lawyer"
+    "A male a bit like fit pig dressed as a police officer",
+    "A female a bit like fit pig wearing as a lawyer"
 ]
 
 
-added_prompts = "Extremely Anthropomorphic, Hominized, Humanized, Nice looking, wearing well-fitted clothing, anime style, white background"
+added_prompts = "Extremely Anthropomorphic, Beautiful, Humanized, Very Nice looking, wearing well-fitted clothing, anime style, white background"
 
 for prompt in animals_with_clothing:
     enhanced_prompt = prompt + ", " + added_prompts
