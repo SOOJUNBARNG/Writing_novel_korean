@@ -11,95 +11,103 @@ pipe = pipe.to("cuda")
 leading_image_path = r"D:\Writing_novel_korean\make_image\related_image\horseman.webp"
 leading_image = Image.open(leading_image_path).convert("RGB")
 
-# animals_with_clothing = [
-#     "A handsome male but a little like rat wearing a business suit",
-#     "A beautiful female but a little like rat wearing an elegant dress",
+animals_with_clothing = {
+    "rat_male": "A handsome man in a sharp business suit with subtly angular features and a clever, rat-like charm",
+    "rat_female": "A beautiful woman in an elegant dress with delicate features and a hint of mischievous, rat-like allure",
     
-#     "A handsome male  a bit like  ox wearing a farmer's outfit",
-#     "A beautiful female  a bit like  ox wearing a oriental outfit",
+    "ox_male": "A ruggedly handsome man in a farmer's outfit with a strong build and grounded, ox-like presence",
+    "ox_female": "A graceful woman in a traditional oriental outfit with calm, dignified features and ox-like strength",
     
-#     "A handsome male  a bit like  tiger wearing a detective coat",
-#     "A beautiful female  a bit like  tiger wearing a doctor outfit",
+    "tiger_male": "A sharp-eyed man in a detective coat with a fierce gaze and a bold, tiger-like charisma",
+    "tiger_female": "A confident woman in a white doctor’s coat, with striking eyes and a graceful, tiger-like intensity",
     
-#     "A handsome male  a bit like  rabbit dressed in knight general suit",
-#     "A beautiful female  a bit like  rabbit wearing like a florist",
+    "rabbit_male": "A noble man dressed in a knight general's armor with a gentle but alert expression, evoking rabbit-like agility",
+    "rabbit_female": "A gentle woman in a floral dress with soft features and a warm, rabbit-like demeanor",
     
-#     "A handsome male  a bit like  dragon in royal Korean robes",
-#     "A beautiful female career woman a bit like dragon in a business suit",
+    "dragon_male": "A regal man in traditional Korean royal robes with a powerful presence and subtle dragon-like majesty",
+    "dragon_female": "A commanding career woman in a sleek business suit with confident posture and a refined, dragon-like energy",
     
-#     "A handsome male  a bit like  snake wearing a bow tie",
-#     "A beautiful female  a bit like  snake wearing a stylish gown",
+    "snake_male": "A refined man in formalwear with a slim frame and quiet elegance, exuding snake-like charm",
+    "snake_female": "A glamorous woman in a flowing gown with sharp eyes and subtle, snake-like mystery",
     
-#     "A handsome male a bit like horse wearing a royal robe",
-#     "A beautiful female a bit like horse wearing an elegant ballroom gown",
+    "horse_male": "A dignified man in a royal robe with a proud stance and a bold, horse-like energy",
+    "horse_female": "A radiant woman in a ballroom gown with flowing hair and a graceful, horse-like spirit",
     
-#     "A handsome male a bit like goat wearing a scholar’s robe",
-#     "A beautiful female a bit like goat wearing a soft woolen dress",
+    "goat_male": "A scholarly man in traditional robes with wise eyes and a calm, goat-like gentleness",
+    "goat_female": "A soft-spoken woman in a cozy woolen dress with serene features and goat-like warmth",
     
-#     "A handsome male like monkey wearing a suit and tie",
-#     "A beautiful female like monkey wearing a chic blazer and skirt",
+    "monkey_male": "A clever man in a modern suit and tie with lively eyes and playful, monkey-like intelligence",
+    "monkey_female": "A stylish woman in a chic blazer and skirt with bright features and monkey-like wit",
     
-#     "A handsome male but a little like rooster wearing a pilot uniform",
-#     "A beautiful female but a little like hen wearing a stylish flight attendant",
+    "rooster_male": "A charismatic man in a pilot uniform with sharp eyes and confident, rooster-like poise",
+    "rooster_female": "A fashionable woman in a flight attendant uniform with polished style and rooster-like flair",
     
-#     "A handsome male a bit like Labrador Retriever wearing a health trainer outfit",
-#     "A beautiful female a bit like Poodle wearing a detective trench coat",
+    "dog_male": "A fit man in a sporty health trainer outfit with loyal eyes and Labrador-like energy",
+    "dog_female": "A classy woman in a detective trench coat with an elegant silhouette and clever, poodle-like personality",
     
-#     "A handsome male mixed with pig dressed as a police officer",
-#     "A beautiful female mixed with pig wearing as a lawyer"
+    "pig_male": "A strong man in a police uniform with bold features and dependable, hog-like steadiness",
+    "pig_female": "A confident woman in a lawyer's suit with sharp wit and a composed, pig-like charm"
+}
+
+version = "v1"
+
+added_prompts = "Loish and Studio Ghibli, pastel color palette, soft lighting, digital painting, 2D illustration, Very Nice looking, wearing well-fitted clothing, anime style, white background"
+
+# business_topics = [
+#     "Business Strategy",
+#     "Overview of Corporate Strategy",
+#     "Mid-to-Long-Term Vision and Growth Strategy",
+#     "Market Analysis and Competitive Environment",
+#     "Roadmap for New Business Development",
+#     "Growth Strategy for Existing Businesses",
+    
+#     "Finance & KPI Management",
+#     "Revenue and Profit Trends & Analysis",
+#     "Business-Specific Revenue Models",
+#     "Cost Reduction and Efficiency Measures",
+#     "Financial Metrics and KPI Management",
+#     "Return on Investment (ROI) Analysis",
+    
+#     "Organization & Talent Strategy",
+#     "Organizational Structure and Governance",
+#     "Talent Development and Leadership Training",
+#     "Workstyle Reform and Productivity Improvement",
+#     "Diversity & Inclusion",
+#     "Employee Engagement Enhancement",
+    
+#     "DX & Technology Utilization",
+#     "Digital Transformation (DX) Strategy",
+#     "AI & Data Utilization for Operational Efficiency",
+#     "System Modernization and IT Infrastructure Optimization",
+#     "Customer Data Analysis and Marketing Applications",
+#     "Business Improvement through Generative AI",
+    
+#     "Risk Management & Compliance",
+#     "Business Risks and Countermeasures",
+#     "Business Continuity Planning (BCP) and Crisis Management",
+#     "Strengthening Governance and Internal Controls",
+#     "Legal Compliance and Regulatory Adherence",
+#     "Cybersecurity Measures",
+    
+#     "Innovation & Corporate Culture",
+#     "Mechanisms for Innovation Creation",
+#     "Utilizing Internal Ideas and Creating New Businesses",
+#     "Open Innovation Strategy",
+#     "Corporate Culture and Vision Penetration",
+    
+#     "Sustainability & ESG Management"
 # ]
+# added_prompts = "This is a ppt slide for medical consulting company, Extremely formal, made by consultant, No text,white background"
 
-
-# added_prompts = "Extremely Anthropomorphic, Humanized, Very Nice looking, wearing well-fitted clothing, anime style, white background"
-
-related_image_basic = [
-    "ビジネス戦略関連",
-    "経営戦略の全体像",
-    "中長期ビジョンと成長戦略",
-    "市場分析と競争環境",
-    "新規事業開発のロードマップ",
-    "既存事業の成長戦略",
-    "財務・KPI管理",
-    "売上・利益の推移と分析",
-    "事業別収益モデル",
-    "コスト削減と効率化施策",
-    "財務指標とKPI管理",
-    "投資対効果（ROI）分析",
-    "組織・人材戦略",
-    "組織体制とガバナンス",
-    "人材育成とリーダーシップ開発",
-    "働き方改革と生産性向上",
-    "ダイバーシティ＆インクルージョン",
-    "従業員エンゲージメント向上策",
-    "DX・テクノロジー活用",
-    "デジタル変革（DX）戦略",
-    "AI・データ活用による業務効率化",
-    "システム刷新とITインフラの最適化",
-    "顧客データ分析とマーケティング活用",
-    "生成AI活用による業務改善",
-    "リスク管理・コンプライアンス",
-    "事業リスクと対応策",
-    "BCP（事業継続計画）と危機管理",
-    "ガバナンス強化と内部統制",
-    "法規制対応とコンプライアンス",
-    "サイバーセキュリティ対策",
-    "イノベーション・企業文化",
-    "イノベーション創出の仕組み",
-    "社内アイデアの活用と新規事業創出",
-    "オープンイノベーション戦略",
-    "企業文化とビジョンの浸透",
-    "サステナビリティとESG経営"
-]
-
-added_prompts = "This is a ppt slide for medical frontier company in japan, Extremely formal, made by consultant, No text,white background"
-
-for prompt in related_image_basic:
+for i, (key, prompt) in enumerate(animals_with_clothing.items()):
     enhanced_prompt = prompt + ", " + added_prompts
+    
     try:
-        image = pipe(prompt=enhanced_prompt, init_image=leading_image, strength=0.8).images[0]
+        # If 'leading_image' is not defined, remove init_image from the function call:
+        image = pipe(prompt=enhanced_prompt, init_image=None, strength=0.8).images[0]  # Adjust as needed
     except TypeError:
         print("init_image argument not supported. Please check the updated StableDiffusion3Pipeline documentation.")
-        image = pipe(prompt=enhanced_prompt).images[0]
+        image = pipe(prompt=enhanced_prompt).images[0]  # For pure prompt generation
 
     # Save the generated image
-    image.save(fr"{prompt}.png")
+    image.save(fr"{key}_{version}.png")
