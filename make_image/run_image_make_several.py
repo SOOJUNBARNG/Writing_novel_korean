@@ -16,7 +16,7 @@ animals_with_clothing = {
     "rat_female": "A beautiful woman in an elegant dress with delicate features and a hint of mischievous, rat-like allure",
     
     "ox_male": "A ruggedly handsome man in a farmer's outfit with a strong build and grounded, ox-like presence",
-    "ox_female": "A graceful woman in a traditional oriental outfit with calm, dignified features and ox-like strength",
+    "ox_female": "A graceful woman in a traditional russian outfit with calm, dignified features and ox-like strength",
     
     "tiger_male": "A sharp-eyed man in a detective coat with a fierce gaze and a bold, tiger-like charisma",
     "tiger_female": "A confident woman in a white doctor’s coat, with striking eyes and a graceful, tiger-like intensity",
@@ -25,25 +25,25 @@ animals_with_clothing = {
     "rabbit_female": "A gentle woman in a floral dress with soft features and a warm, rabbit-like demeanor",
     
     "dragon_male": "A regal man in traditional Korean royal robes with a powerful presence and subtle dragon-like majesty",
-    "dragon_female": "A commanding career woman in a sleek business suit with confident posture and a refined, dragon-like energy",
+    "dragon_female": "A commanding career woman in a sleek business suit with confident posture and a refined, dragon-like power",
     
     "snake_male": "A refined man in formalwear with a slim frame and quiet elegance, exuding snake-like charm",
     "snake_female": "A glamorous woman in a flowing gown with sharp eyes and subtle, snake-like mystery",
     
-    "horse_male": "A dignified man in a royal robe with a proud stance and a bold, horse-like energy",
+    "horse_male": "A dignified man in a royal robe with a proud stance and a bold, unicorn-like energy",
     "horse_female": "A radiant woman in a ballroom gown with flowing hair and a graceful, horse-like spirit",
     
     "goat_male": "A scholarly man in traditional robes with wise eyes and a calm, goat-like gentleness",
     "goat_female": "A soft-spoken woman in a cozy woolen dress with serene features and goat-like warmth",
     
-    "monkey_male": "A clever man in a modern suit and tie with lively eyes and playful, monkey-like intelligence",
+    "monkey_male": "A clever man in a modern suit and tie with lively eyes and playful, monkey-like energy",
     "monkey_female": "A stylish woman in a chic blazer and skirt with bright features and monkey-like wit",
     
     "rooster_male": "A charismatic man in a pilot uniform with sharp eyes and confident, rooster-like poise",
     "rooster_female": "A fashionable woman in a flight attendant uniform with polished style and rooster-like flair",
     
-    "dog_male": "A fit man in a sporty health trainer outfit with loyal eyes and Labrador-like energy",
-    "dog_female": "A classy woman in a detective trench coat with an elegant silhouette and clever, poodle-like personality",
+    "dog_male": "A fit man in a sporty health trainer outfit with loyal eyes and Labrador-like affection",
+    "dog_female": "A classy woman in a detective trench coat with an elegant silhouette and clever, poodle-like beauty",
     
     "pig_male": "A strong man in a police uniform with bold features and dependable, hog-like steadiness",
     "pig_female": "A confident woman in a lawyer's suit with sharp wit and a composed, pig-like charm"
@@ -51,7 +51,7 @@ animals_with_clothing = {
 
 version = "v1"
 
-added_prompts = "Loish and Studio Ghibli, pastel color palette, soft lighting, digital painting, 2D illustration, Very Nice looking, wearing well-fitted clothing, anime style, white background"
+added_prompts = "Loish and Studio Ghibli, anthropomorphism, pastel color palette, soft lighting, digital painting, 2D illustration, Very Nice looking, wearing well-fitted clothing, anime style, white background"
 
 # business_topics = [
 #     "Business Strategy",
