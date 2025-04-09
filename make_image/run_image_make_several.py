@@ -51,7 +51,7 @@ animals_with_clothing = {
 
 version = "v1"
 
-added_prompts = "Loish and Studio Ghibli, anthropomorphism, pastel color palette, soft lighting, digital painting, 2D illustration, Very Nice looking, wearing well-fitted clothing, anime style, white background"
+added_prompts = "tudio Ghibli, anthropomorphism, pastel color palette, soft lighting, digital painting, 2D illustration, Very Nice looking, wearing well-fitted clothing, anime style, white background" #Loish and S
 
 # business_topics = [
 #     "Business Strategy",
